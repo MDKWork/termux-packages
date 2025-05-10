@@ -1,16 +1,17 @@
---- ./usr/include/stdlib.h.orig	2021-08-16 11:50:47.432239182 +0200
-+++ ./usr/include/stdlib.h	2021-08-16 11:51:31.102222894 +0200
-@@ -33,6 +33,9 @@
+diff -u -r /home/builder/lib/android-ndk-r28b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/stdlib.h ./usr/include/stdlib.h
+--- /home/builder/lib/android-ndk-r28b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/stdlib.h	2024-11-14 00:52:25.000000000 +0000
++++ ./usr/include/stdlib.h	2025-05-09 18:57:01.854008180 +0000
+@@ -35,6 +35,9 @@
  #include <bits/wait.h>
  #include <malloc.h>
  #include <stddef.h>
 +#if !defined(__swift__)
 +#include <stdint.h>
 +#endif
- #include <sys/cdefs.h>
  #include <xlocale.h>
  
-@@ -207,8 +207,7 @@
+ __BEGIN_DECLS
+@@ -227,8 +230,7 @@
  
  size_t wcstombs(char* _Nullable __dst, const wchar_t* _Nullable __src, size_t __n);
  
