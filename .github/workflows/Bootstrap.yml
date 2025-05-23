@@ -1,0 +1,26 @@
+name: Test Termux Bootstrap Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-bootstrap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        run: sudo apt-get update && sudo apt-get install -y docker.io
+
+      - name: Run test-build.sh
+        run: |
+          chmod +x ./test-build.sh
+          ./test-build.sh
+
+      - name: Upload bootstrap zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: bootstrap-aarch64
+          path: termux-packages/bootstrap-aarch64.zip
